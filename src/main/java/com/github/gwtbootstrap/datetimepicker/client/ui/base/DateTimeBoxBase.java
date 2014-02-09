@@ -117,6 +117,7 @@ public class DateTimeBoxBase
      */
     public void setReadOnly(boolean readonly) {
         box.setReadOnly(readonly);
+		reconfigure();
     }
 
     /**
@@ -254,7 +255,8 @@ public class DateTimeBoxBase
      * configure this datetimepicker.
      */
     protected void configure() {
-        configure(this);
+		if(!isReadOnly())
+			configure(this);
     }
 
     protected native void removeDataIfExists(Element e) /*-{
